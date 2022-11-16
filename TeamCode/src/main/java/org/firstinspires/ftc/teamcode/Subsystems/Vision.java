@@ -80,9 +80,9 @@ public class Vision {
      * Once you've obtained a license key, copy the string from the Vuforia web site
      * and paste it in to your code on the next line, between the double quotes.
      */
-    //TODO : Create VUFORIA_KEY for your team based on above instructions and update
+    // : Create VUFORIA_KEY for your team based on above instructions and update
     private static final String VUFORIA_KEY =
-            " -- YOUR NEW VUFORIA KEY GOES HERE  --- ";
+            "AdKHG/j/////AAAAGfsT8iaoW0HvriC2qmluP6ERYwWj25nh1IPozJaMrrziwMotfee/QxLFoFkERRs/MGUgJ26M1u3V5EfvEYkZlf2EfPivpjdzjtCVHcwixiBbNDcB9nwnwmI2gJ6UtNQyiyPQX2TrczeD/hsqCFseBGyYCztXF5QJ/1lcCHGavW54ksolcLLPjFq0wFZ+yufMFFaur6RF0GBo2DvQ/XUPhEGe/frCz1sjw1mGeoKhgFbZyvfhtGD1mrZR4JhX5pZMONdnXO3ETOmpsTgjUFd4geYKOfpnqvLViTuySDlqv1TpYLtDrW2Pr9mt5m+oUc1VjTsdcVS6LrMb5QvBmDZWF4SetVRNyEZXYp7SgLDCi/iB";
 
     /**
      * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
