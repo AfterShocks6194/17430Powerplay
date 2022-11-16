@@ -71,6 +71,7 @@ public class SampleMecanumDrive extends MecanumDrive {
 
     private TrajectoryFollower follower;
 
+    //TODO Check Motor Names in Robot Setup
     private DcMotorEx leftFront, leftRear, rightRear, rightFront;
     private List<DcMotorEx> motors;
 
@@ -118,7 +119,8 @@ public class SampleMecanumDrive extends MecanumDrive {
         //
         // For example, if +Y in this diagram faces downwards, you would use AxisDirection.NEG_Y.
 
-        // TODO : ftcwires action. Set the IMU axis based on which direction the Rev logo is pointing
+        //: ftcwires action. Set the IMU axis based on which direction the Rev logo is pointing
+        //THIS IS DONE
         BNO055IMUUtil.remapZAxis(imu, AxisDirection.POS_Z);
 
         leftFront = hardwareMap.get(DcMotorEx.class, "leftFront");
@@ -145,6 +147,7 @@ public class SampleMecanumDrive extends MecanumDrive {
         }
 
         // TODO: reverse any motors using DcMotor.setDirection()
+        //TODO: Check Motor direction in current code
         rightFront.setDirection(DcMotor.Direction.REVERSE);
         rightRear.setDirection(DcMotor.Direction.REVERSE);
 

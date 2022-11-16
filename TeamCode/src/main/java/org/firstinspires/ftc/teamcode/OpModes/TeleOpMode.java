@@ -27,7 +27,7 @@ public class TeleOpMode extends LinearOpMode {
         driveTrain = new DriveTrain(hardwareMap);
 
         telemetry.clearAll();
-        telemetry.addData("Running FTC Wires TeleOp adopted for Team","TEAM NUMBER");
+        telemetry.addData("Running FTC Wires TeleOp adopted for Team","17430");
         telemetry.update();
         /* Wait for Start or Stop Button to be pressed */
         waitForStart();

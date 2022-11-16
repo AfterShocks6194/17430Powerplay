@@ -46,7 +46,7 @@ public class AutoOpMode extends LinearOpMode{
             //Run Vuforia Tensor Flow and keep watching for the identifier in the Signal Cone.
             vision.runVuforiaTensorFlow();
             telemetry.clearAll();
-            telemetry.addData("Start FTC Wires (ftcwires.org) Autonomous Mode adopted for Team","TEAM NUMBER");
+            telemetry.addData("Start FTC Wires (ftcwires.org) Autonomous Mode adopted for Team","17430");
             telemetry.addData("---------------------------------------","");
             telemetry.addData("Selected Starting Position", startPosition);
             telemetry.addData("Vision identified Parking Location", vision.identifiedparkingLocation);
@@ -177,7 +177,7 @@ public class AutoOpMode extends LinearOpMode{
     //Run Auto trajectory and parking trajectory
     public void runAutoAndParking(){
         telemetry.setAutoClear(false);
-        telemetry.addData("Running FTC Wires (ftcwires.org) Autonomous Mode adopted for Team:","TEAM NUMBER");
+        telemetry.addData("Running FTC Wires (ftcwires.org) Autonomous Mode adopted for Team:","17430");
         telemetry.addData("---------------------------------------","");
         telemetry.update();
         //Run the trajectory built for Auto and Parking
@@ -187,14 +187,19 @@ public class AutoOpMode extends LinearOpMode{
 
     //Write a method which is able to pick the cone from the stack depending on your subsystems
     public void pickCone(int coneCount) {
-        /*TODO: Add code to pick Cone 1 from stack*/
+        /*TODO: Add code to pick Cone 1 from stack
+        Depending on what cone number is given via coneCount, we can alter the height of the pickup to not grab two cones.
+        We can add a T bar to the brain spike to only allow it to grab one cone, but we need to adjust the height of the lift
+        so we don't ram it into the dirt*/
         telemetry.addData("Picked Cone: Stack", coneCount);
         telemetry.update();
     }
 
     //Write a method which is able to drop the cone depending on your subsystems
     public void dropCone(int coneCount){
-        /*TODO: Add code to drop cone on junction*/
+        /*TODO: Add code to drop cone on junction
+        Since it drops fairly flat, we can just run the lift to the appropriate height in the "pickCone" step and
+        only release here*/
         if (coneCount == 0) {
             telemetry.addData("Dropped Cone", "Pre-loaded");
         } else {
@@ -214,7 +219,7 @@ public class AutoOpMode extends LinearOpMode{
         telemetry.clearAll();
         //******select start pose*****
         while(!isStopRequested()){
-            telemetry.addData("Initializing FTC Wires (ftcwires.org) Autonomous Mode adopted for Team:","TEAM NUMBER");
+            telemetry.addData("Initializing FTC Wires (ftcwires.org) Autonomous Mode adopted for Team:","17430");
             telemetry.addData("---------------------------------------","");
             telemetry.addData("Select Starting Position using XYAB Keys on gamepad 1:","");
             telemetry.addData("    Blue Left   ", "(X)");
