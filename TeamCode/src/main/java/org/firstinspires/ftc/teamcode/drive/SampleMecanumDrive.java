@@ -71,8 +71,9 @@ public class SampleMecanumDrive extends MecanumDrive {
 
     private TrajectoryFollower follower;
 
-    //TODO Check Motor Names in Robot Setup
+    // Check Motor Names in Robot Setup
     private DcMotorEx leftFront, leftRear, rightRear, rightFront;
+
     private List<DcMotorEx> motors;
 
     private BNO055IMU imu;
@@ -98,7 +99,7 @@ public class SampleMecanumDrive extends MecanumDrive {
         parameters.angleUnit = BNO055IMU.AngleUnit.RADIANS;
         imu.initialize(parameters);
 
-        // TODO: If the hub containing the IMU you are using is mounted so that the "REV" logo does
+        // If the hub containing the IMU you are using is mounted so that the "REV" logo does
         // not face up, remap the IMU axes so that the z-axis points upward (normal to the floor.)
         //
         //             | +Z axis
