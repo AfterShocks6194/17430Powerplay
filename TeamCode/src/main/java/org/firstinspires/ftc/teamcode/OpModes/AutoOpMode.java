@@ -3,8 +3,10 @@ package org.firstinspires.ftc.teamcode.OpModes;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Subsystems.DriveTrain;
+import org.firstinspires.ftc.teamcode.Subsystems.ScissorLift;
 import org.firstinspires.ftc.teamcode.Subsystems.Vision;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
@@ -25,12 +27,14 @@ public class AutoOpMode extends LinearOpMode{
 
     public Vision vision;
     public DriveTrain driveTrain;
+    public ScissorLift scissorLift;
 
     @Override
     public void runOpMode() throws InterruptedException {
         /*Create your Subsystem Objects*/
         driveTrain = new DriveTrain(hardwareMap);
         vision = new Vision(hardwareMap);
+        scissorLift = new ScissorLift();
 
         //Key Pay inputs to selecting Starting Position of robot
         selectStartingPosition();
@@ -41,6 +45,7 @@ public class AutoOpMode extends LinearOpMode{
         //Build Autonomous trajectory to be used based on starting position selected
         buildAuto();
         driveTrain.getLocalizer().setPoseEstimate(initPose);
+        scissorLift.scissorSetup();
 
         while (!isStopRequested() && !opModeIsActive()) {
             //Run Vuforia Tensor Flow and keep watching for the identifier in the Signal Cone.
@@ -187,11 +192,37 @@ public class AutoOpMode extends LinearOpMode{
 
     //Write a method which is able to pick the cone from the stack depending on your subsystems
     public void pickCone(int coneCount) {
-        /*TODO: Add code to pick Cone 1 from stack
-        Depending on what cone number is given via coneCount, we can alter the height of the pickup to not grab two cones.
-        We can add a T bar to the brain spike to only allow it to grab one cone, but we need to adjust the height of the lift
-        so we don't ram it into the dirt*/
-        telemetry.addData("Picked Cone: Stack", coneCount);
+
+        if (coneCount == 1){
+            telemetry.addData("Grabbed Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+        else if (coneCount == 2){
+            telemetry.addData("Grabbed Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+        else if (coneCount == 3){
+            telemetry.addData("Grabbed Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+
+        else if (coneCount == 4){
+            telemetry.addData("Grabbed Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+
+        else {
+            telemetry.addData("Dropped Cone: Stack", coneCount);
+        }
+
         telemetry.update();
     }
 
@@ -200,9 +231,38 @@ public class AutoOpMode extends LinearOpMode{
         /*TODO: Add code to drop cone on junction
         Since it drops fairly flat, we can just run the lift to the appropriate height in the "pickCone" step and
         only release here*/
+
         if (coneCount == 0) {
+            scissorLift.setBrainSpike(1);
             telemetry.addData("Dropped Cone", "Pre-loaded");
-        } else {
+        }
+        else if (coneCount == 1){
+            telemetry.addData("Dropped Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+        else if (coneCount == 2){
+            telemetry.addData("Dropped Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+        else if (coneCount == 3){
+            telemetry.addData("Dropped Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+
+        else if (coneCount == 4){
+            telemetry.addData("Dropped Cone: Stack", coneCount);
+            //todo figure out what the lift positions are
+            //scissorLift.liftToPosition(1234);
+            //scissorLift.setBrainSpike(1);
+        }
+
+        else {
             telemetry.addData("Dropped Cone: Stack", coneCount);
         }
         telemetry.update();
